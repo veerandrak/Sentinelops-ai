@@ -1,5 +1,6 @@
 import time
 from contextlib import contextmanager
+
 from prometheus_client import Counter, Histogram
 
 INCIDENTS=Counter("sentinelops_incidents_total","Incident investigations",["service"])
