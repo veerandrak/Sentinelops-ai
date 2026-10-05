@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinelops-ai
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sentinelops-ai
+  template:
+    metadata:
+      labels:
+        app: sentinelops-ai
+    spec:
+      containers:
+        - name: api
+          image: sentinelops-ai:0.1.0
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
