@@ -77,16 +77,19 @@ Many portfolio agents stop at “LLM + prompt + vector DB.” SentinelOps focuse
 - [x] Risk-based action gate
 - [x] API and tests
 - [x] CI and container build
-- [ ] LangGraph orchestration adapter
-- [ ] MCP server transport
+- [x] LangGraph orchestration
+- [x] MCP read-only tool server
 - [ ] pgvector/Qdrant persistence
-- [ ] OpenTelemetry + Prometheus
-- [ ] AWS deployment module
+- [x] Prometheus instrumentation
+- [x] AWS reference deployment architecture
 - [ ] Real Kubernetes read-only adapter
 - [ ] LLM provider adapter + grounded-answer evaluation
 
 ## Interview walkthrough
-See `docs/INTERVIEW_GUIDE.md`.
+See `docs/INTERVIEW_GUIDE.md` and `docs/PROJECT_WALKTHROUGH.md`.
+
+## Verified build
+GitHub Actions verifies Ruff linting, pytest, deterministic evaluation, and dependency auditing. The validated v0.2.0 build passed 7 tests and the demo evaluation scored 2/2 (100%). These numbers describe the repository test/evaluation suite, not production AI accuracy.
 
 ## Responsible portfolio note
 This is a portfolio/reference implementation. The demo uses simulated operational data and does not claim production deployment or business impact that did not occur.
