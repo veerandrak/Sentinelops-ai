@@ -3,7 +3,9 @@
 Uses hashed term vectors + cosine similarity. The Retriever interface is deliberately
 replaceable by pgvector/Qdrant/managed embeddings in production.
 """
-import hashlib, math, re
+import hashlib
+import math
+import re
 from pathlib import Path
 
 DIMS = 256
