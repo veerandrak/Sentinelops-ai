@@ -12,15 +12,32 @@ spec:
       labels:
         app: sentinelops-ai
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: api
-          image: sentinelops-ai:0.1.0
+          image: sentinelops-ai:0.2.0
           ports:
             - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: sentinelops-config
           readinessProbe:
             httpGet:
               path: /health
               port: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 10
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
           resources:
             requests:
               cpu: "100m"

@@ -1,8 +1,16 @@
 from sentinelops.orchestrator import investigate
 
 CASES = [
-    {"service": "checkout-api", "question": "Why are 5xx errors rising?", "expected_approval": True},
-    {"service": "unknown-service", "question": "Investigate the service", "expected_approval": False},
+    {
+        "service": "checkout-api",
+        "question": "Why are 5xx errors rising?",
+        "expected_approval": True,
+    },
+    {
+        "service": "unknown-service",
+        "question": "Investigate the service",
+        "expected_approval": False,
+    },
 ]
 
 

@@ -1,0 +1,4 @@
+[
+  {"id":"deploy-regression","service":"checkout-api","question":"Why are 5xx errors rising after deployment?","expected_approval":true,"required_evidence":["deployment","metrics","logs"]},
+  {"id":"unknown-service","service":"catalog-api","question":"Investigate elevated latency","expected_approval":false,"required_evidence":["deployment","metrics","logs"]}
+]
